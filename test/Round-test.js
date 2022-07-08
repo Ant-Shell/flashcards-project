@@ -74,11 +74,21 @@ describe('Round', function() {
     expect(round.returnCurrentCard()).to.equal(card3);
   })
 
-  it.skip('should calculate and return the percentage of correct guesses', function() {
-    // stuff
+  it('should calculate and return the percentage of correct guesses', function() {
+    round.takeTurn(correctTurn);
+    round.takeTurn(incorrectTurn);
+
+    expect(round.calculatePercentCorrect()).to.equal(0.5);
   })
 
-  it.skip('should end the round', function() {
-    // stuff
+  it('should end the round', function() {
+    round.takeTurn(correctTurn);
+    round.takeTurn(incorrectTurn);
+
+    expect(round.endRound()).to.equal('** Round over! ** You answered 0.5% of the questions correctly!')
+  })
+
+  it('should end the round if no guesses were made', function() {
+    expect(round.endRound()).to.equal('** Round over! **')
   })
 });
