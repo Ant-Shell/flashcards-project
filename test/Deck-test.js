@@ -9,12 +9,15 @@ let card1;
 let card2;
 let card3;
 let deck;
+let dataDetails1;
+let dataDetails2;
+let dataDetails3;
 let dataInfo = data;
 
 beforeEach(function() {
-  let dataDetails1 = dataInfo.prototypeData[0];
-  let dataDetails2 = dataInfo.prototypeData[1];
-  let dataDetails3 = dataInfo.prototypeData[2];
+  dataDetails1 = dataInfo.prototypeData[0];
+  dataDetails2 = dataInfo.prototypeData[1];
+  dataDetails3 = dataInfo.prototypeData[2];
   card1 = new Card(dataDetails1);
   card2 = new Card(dataDetails2);
   card3 = new Card(dataDetails3);
