@@ -46,16 +46,23 @@ describe('Round', function() {
     expect(round.incorrectGuesses).to.contain(2);
   })
 
-  it.skip('should increment the number of turns on correct guess', function() {
-    // stuff
+  it('should increment the number of turns on correct guess', function() {
+    round.takeTurn(correctTurn);
+
+    expect(round.turns).to.equal(1);
   })
 
-  it.skip('should increment the number of turns on incorrect', function() {
-    // stuff
+  it('should increment the number of turns on incorrect', function() {
+    round.takeTurn(incorrectTurn);
+
+    expect(round.turns).to.equal(1);
   })
 
-  it.skip('should return another current card', function() {
-    // expect(round.returnCurrentCard()).to.equal(card1)
+  it('should return current card after turns taken', function() {
+    round.takeTurn(correctTurn);
+    round.takeTurn(incorrectTurn);
+
+    expect(round.returnCurrentCard()).to.equal(card3)
   })
 
   it.skip('should calculate and return the percentage of correct guesses', function() {
