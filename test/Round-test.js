@@ -33,6 +33,15 @@ describe('Round', function() {
     expect(round).to.be.an.instanceOf(Round);
   })
 
+  it('should have turns initialized to zero', function() {
+    expect(round.turns).to.equal(0);
+  })
+
+  it('should have incorrectGuesses initialized to an empty array', function() {
+    expect(round.incorrectGuesses).to.be.instanceOf(Array);
+    expect(round.incorrectGuesses).to.be.empty;
+  })
+
   it('should return the current card', function() {
     expect(round.returnCurrentCard()).to.equal(card1);
   })
@@ -62,7 +71,7 @@ describe('Round', function() {
     round.takeTurn(correctTurn);
     round.takeTurn(incorrectTurn);
 
-    expect(round.returnCurrentCard()).to.equal(card3)
+    expect(round.returnCurrentCard()).to.equal(card3);
   })
 
   it.skip('should calculate and return the percentage of correct guesses', function() {
