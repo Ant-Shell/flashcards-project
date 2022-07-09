@@ -5,9 +5,9 @@ This is a game that is designed to be run in the console. It allows you to choos
 Please note, this game is still in development.
 
 ## Technologies used
-Javascript
-Mocha (testing)
-Chai (testing)
+- Javascript
+- Mocha (testing)
+- Chai (testing)
 
 ## Install / Setup Instructions
 TBD
