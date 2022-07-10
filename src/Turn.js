@@ -15,7 +15,7 @@ class Turn {
   }
 
   evaluateGuess() {
-    let correctAnswer = this.card['correctAnswer'];
+    let correctAnswer = this.card.correctAnswer;
     if (this.guess === correctAnswer) {
       return true;
     } else {
@@ -24,7 +24,7 @@ class Turn {
   }
 
   giveFeedback() {
-    let evaluation = this.evaluateGuess()
+    let evaluation = this.evaluateGuess();
     if (evaluation === true) {
       return 'Correct!'
     } else {
