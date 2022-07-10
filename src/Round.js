@@ -13,33 +13,35 @@ class Round {
     return currentCard;
   } 
 
-  takeTurn(turn) {
-    let feedbackResult = turn.giveFeedback();
-    if(feedbackResult === 'Correct!' ) {
-      this.turns++
+  takeTurn(guess) {
+    let card = this.returnCurrentCard();
+    let currentTurn = new Turn(guess, card)
+    let feedbackResult = currentTurn.giveFeedback();
+    this.turns++
+
+    if (this.turns === this.deck.cards.length + 1) {
+      this.endRound()
+    }
+
+    if (feedbackResult === 'Correct!' ) {
       return feedbackResult;
     } else {
-      this.turns++
-      this.incorrectGuesses.push(turn.card.id)
+      this.incorrectGuesses.push(currentTurn.card.id)
       return feedbackResult;
     }
   }
 
   calculatePercentCorrect() {
     let correctGuesses = this.turns - this.incorrectGuesses.length;
-    let percentCorrect = correctGuesses / this.turns;
+    let percentCorrect = parseFloat(((correctGuesses / this.turns) * 100).toFixed(2));
     
     return percentCorrect;
   }
 
   endRound() {
     let percent = this.calculatePercentCorrect();
-
-    if(isNaN(percent) === true) {
-      return '** Round over! **'
-    } else {
-      return `** Round over! ** You answered ${percent}% of the questions correctly!`
-    }
+    console.log(`** Round over! ** You answered ${percent}% of the questions correctly!`)
+    return `** Round over! ** You answered ${percent}% of the questions correctly!`
   }
 }
 
